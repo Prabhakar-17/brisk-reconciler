@@ -1,3 +1,5 @@
+// A reconciler created for tests. 
+
 module Implementation = {
   [@deriving (show({with_path: false}), eq)]
   type hostElement =
@@ -12,6 +14,8 @@ module Implementation = {
 
   [@deriving eq]
   type testMountEntry =
+    | BeginChanges
+    | CommitChanges
     | MountChild(node, node, int)
     | UnmountChild(node, node)
     | RemountChild(node, node, int, int)
@@ -24,6 +28,10 @@ module Implementation = {
 
   let isDirty = ref(false);
   let markAsStale = () => isDirty := true;
+
+  let beginChanges = () => mountLog := [BeginChanges, ...mountLog^];
+
+  let commitChanges = () => mountLog := [CommitChanges, ...mountLog^];
 
   let insertNode = (~parent: node, ~child: node, ~position: int) => {
     switch (child.element) {

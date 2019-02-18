@@ -1,0 +1,6 @@
+(executable
+   (name TestRunner)
+   (public_name TestRunner.exe)
+   (libraries  brisk-reconciler-test.lib )
+   (package brisk-reconciler-test)
+)

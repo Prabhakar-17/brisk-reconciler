@@ -1,0 +1,6 @@
+(library
+   (name BriskReconcilerTest)
+   (public_name brisk-reconciler-test.lib)   
+   (ocamlopt_flags -linkall -g)   
+   (libraries rely.lib)
+)

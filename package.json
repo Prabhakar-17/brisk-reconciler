@@ -4,7 +4,11 @@
   "license": "MIT",
   "esy": {
     "build": [
-      "dune build -p brisk-reconciler"
+      "dune build --root . -j4"
+    ],
+    "install": [
+      "esy-installer brisk-reconciler.install",
+      "esy-installer brisk-reconciler-test.install"
     ]
   },
   "scripts": {
@@ -15,13 +19,13 @@
   "dependencies": {
     "@esy-ocaml/reason": ">=3.4.0",
     "@opam/dune": "^1.6.2",
-    "ocaml": ">=4.4.0"
+    "ocaml": "~4.7.1000",
+    "@reason-native/rely": "*"
   },
   "devDependencies": {
-    "@opam/alcotest": "^0.8.4",
     "@opam/easy-format": "^1.3.1",
     "@opam/merlin": "^3.2.2",
-    "@opam/patience_diff": "*",
-    "@opam/ppx_deriving": "^4.2.1"
+    "@opam/ppx_deriving": "^4.2.1",
+    "refmterr": "^3.1.10"
   }
 }
